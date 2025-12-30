@@ -1,0 +1,71 @@
+# Project Variables
+
+# Project Information
+project_name: {{project_name}}
+description: "{{description}}"
+author: {{author}}
+license: {{license}}
+
+# Project Configuration
+project_type: {{project_type}}
+team_size: {{team_size}}
+timeline_months: {{timeline_months}}
+
+# OpenCode Skills Configuration
+include_skills: {{include_skills}}
+available_skills:
+  # Planning Skills
+  - write-prd
+  - analyze-prd
+  - feature-mapping
+  # Task Management Skills
+  - task-planner
+  - task-tracker
+  - dependency-manager
+  - epic-manager
+  - sprint-planner
+  # Technical Skills
+  - tech-design-doc
+  - project-roadmap
+  - api-contract
+
+# Planning Preferences
+default_license: {{license}}
+default_timeline: {{timeline_months}} months
+default_team_size: {{team_size}} members
+
+# Skill-specific Settings
+prd_format: markdown
+analysis_depth: detailed
+feature_priority_method: value-vs-effort
+tech_design_includes: [architecture, api, security, performance]
+roadmap_format: [gantt, timeline, kanban]
+api_spec_version: "3.0"
+
+# Task Management Settings
+task_management_system: beads
+beads_integration: true
+initialize_beads: {{initialize_beads}}
+sprint_duration_weeks: 2
+velocity_calculation: story_points
+dependency_tracking: enabled
+epic_hierarchy: enabled
+
+# Output Directories
+output_dirs:
+  prd: "docs/prd"
+  analysis: "docs/analysis"
+  features: "docs/features"
+  technical: "docs/technical"
+  roadmap: "docs/roadmap"
+  api: "docs/api"
+
+# Generated Files
+generated_files:
+  - "README.md"
+  - "docs/project-plan.md"
+  - "config/project-vars.yaml"
+
+# Template Generation
+generated_at: "{{timestamp}}"
+template_version: "0.1.0"

@@ -1,0 +1,110 @@
+id: product-planning
+name: Product Planning with OpenCode Skills
+description: A complete product planning template with integrated opencode skills for PRD creation, analysis, and project planning
+version: "0.1.0"
+language: universal
+ci_provider: github_actions
+network: allow
+
+inputs:
+  - name: project_name
+    type: string
+    prompt: "Project name?"
+    required: true
+  - name: description
+    type: string
+    prompt: "Project description?"
+    default: "A new product project"
+  - name: author
+    type: string
+    prompt: "Author name?"
+    default: ""
+  - name: license
+    type: enum
+    prompt: "License?"
+    enum_values:
+      - MIT
+      - Apache-2.0
+      - none
+    default: MIT
+  - name: include_skills
+    type: bool
+    prompt: "Include opencode skills for planning?"
+    default: "true"
+  - name: project_type
+    type: enum
+    prompt: "Project type?"
+    enum_values:
+      - web-app
+      - mobile-app
+      - api-service
+      - desktop-app
+      - data-platform
+      - other
+    default: web-app
+  - name: team_size
+    type: string
+    prompt: "Team size?"
+    default: "2-5"
+  - name: timeline_months
+    type: string
+    prompt: "Expected timeline (months)?"
+    default: "6"
+  - name: initialize_beads
+    type: bool
+    prompt: "Initialize beads task management?"
+    default: "true"
+
+steps:
+  - type: render_template
+    src: README.md.hbs
+    dest: README.md
+
+  - type: render_template
+    src: .gitignore.hbs
+    dest: .gitignore
+
+  - type: copy
+    src: .github
+    dest: .github
+    when: include_skills == "true"
+
+  - type: copy
+    src: .opencode
+    dest: .opencode
+    when: include_skills == "true"
+
+  - type: copy
+    src: .opencode
+    dest: .opencode
+    when: include_skills == "true"
+
+  - type: render_template
+    src: AGENTS.md
+    dest: AGENTS.md
+    when: include_skills == "true"
+
+  - type: render_template
+    src: LICENSE.hbs
+    dest: LICENSE
+    when: license != "none"
+
+  - type: render_template
+    src: docs/project-plan.md.hbs
+    dest: docs/project-plan.md
+
+  - type: render_template
+    src: docs/beads-setup.md
+    dest: docs/beads-setup.md
+    when: initialize_beads == "true"
+
+  - type: render_template
+    src: config/project-vars.yaml.hbs
+    dest: config/project-vars.yaml
+
+tests:
+  - echo "Validating product planning template..."
+  - test -d .opencode/skill && echo "✅ Skills directory found" || echo "❌ Skills directory not found"
+  - test -d docs && echo "✅ Docs directory found" || echo "❌ Docs directory not found"
+  - test -f README.md && echo "✅ README.md found" || echo "❌ README.md not found"
+  - test -f config/project-vars.yaml && echo "✅ Project configuration found" || echo "❌ Project configuration not found"

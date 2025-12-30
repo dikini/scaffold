@@ -76,6 +76,10 @@ steps:
     src: .github
     dest: .github
 
+  - type: render_template
+    src: AGENTS.md
+    dest: AGENTS.md
+
 tests:
   - npm run build
   - npm test

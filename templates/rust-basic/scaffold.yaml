@@ -71,6 +71,10 @@ steps:
     dest: LICENSE
     when: license != "none"
 
+  - type: render_template
+    src: AGENTS.md
+    dest: AGENTS.md
+
 tests:
   - cargo build
   - cargo test

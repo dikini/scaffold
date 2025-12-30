@@ -27,29 +27,16 @@ inputs:
     default: "true"
 
 steps:
-  - type: render_template
-    src: rust-ci.yml.hbs
-    dest: .github/workflows/ci.yml
-    when: project_type == "rust"
+  - type: copy
+    src: .github
+    dest: .github
 
   - type: render_template
-    src: node-ci.yml.hbs
-    dest: .github/workflows/ci.yml
-    when: project_type == "node"
+    src: AGENTS.md
+    dest: AGENTS.md
 
   - type: render_template
-    src: python-ci.yml.hbs
-    dest: .github/workflows/ci.yml
-    when: project_type == "python"
-
-  - type: render_template
-    src: go-ci.yml.hbs
-    dest: .github/workflows/ci.yml
-    when: project_type == "go"
-
-  - type: render_template
-    src: generic-ci.yml.hbs
-    dest: .github/workflows/ci.yml
-    when: project_type == "generic"
+    src: AGENT.md
+    dest: AGENT.md
 
 tests: []

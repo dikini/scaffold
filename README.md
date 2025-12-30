@@ -42,7 +42,7 @@ cat > vars.yaml << EOF
 project_name: my-node-app
 description: "A Node.js web application"
 author: "Your Name"
-license: MIT
+license: GPL-3.0
 EOF
 scaffold generate --template node-basic --out my-node-app --vars vars.yaml --apply
 
@@ -55,7 +55,7 @@ project_type: mobile-app
 team_size: "3-5"
 timeline_months: "6"
 include_skills: "true"
-license: MIT
+license: GPL-3.0
 EOF
 scaffold generate --template product-planning --out my-product-planning --vars vars.yaml --apply
 ```
@@ -206,7 +206,7 @@ cargo fmt
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 

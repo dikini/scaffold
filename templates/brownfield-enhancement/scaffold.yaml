@@ -1,0 +1,129 @@
+id: brownfield-enhancement
+name: Brownfield Project Enhancement
+description: Enhances existing projects with scaffold's full product development platform, preserving legacy artifacts and providing workflow parity with greenfield projects
+version: "0.1.0"
+language: universal
+ci_provider: github_actions
+network: allow
+
+inputs:
+  - name: project_name
+    type: string
+    prompt: "Project name?"
+    required: true
+  - name: description
+    type: string
+    prompt: "Project description?"
+    default: "An enhanced project with full product development capabilities"
+  - name: author
+    type: string
+    prompt: "Author name?"
+    default: ""
+  - name: license
+    type: enum
+    prompt: "License?"
+    enum_values:
+      - MIT
+      - Apache-2.0
+      - BSD-3-Clause
+      - none
+    default: MIT
+  - name: preserve_legacy
+    type: bool
+    prompt: "Preserve existing artifacts in legacy/ directory?"
+    default: true
+  - name: tech_stack
+    type: enum
+    prompt: "What is the existing tech stack?"
+    enum_values:
+      - Rust
+      - Node.js
+      - Python
+      - Go
+      - Other
+    default: Rust
+  - name: migrate_existing_tasks
+    type: bool
+    prompt: "Attempt to migrate existing task management to beads?"
+    default: false
+  - name: ci_replacement_strategy
+    type: enum
+    prompt: "How to handle existing CI workflows?"
+    enum_values:
+      - replace
+      - merge
+      - archive
+    default: replace
+  - name: include_skills
+    type: bool
+    prompt: "Include opencode skills for planning?"
+    default: true
+  - name: team_size
+    type: string
+    prompt: "Team size?"
+    default: "2-5"
+  - name: timeline_months
+    type: string
+    prompt: "Expected timeline (months)?"
+    default: "6"
+  - name: initialize_beads
+    type: bool
+    prompt: "Initialize beads task management?"
+    default: true
+
+steps:
+  - type: copy
+    src: scripts/analyze-project.sh.hbs
+    dest: scripts/analyze-project.sh
+
+  - type: copy
+    src: scripts/migrate-legacy.sh.hbs
+    dest: scripts/migrate-legacy.sh
+
+  - type: copy
+    src: .opencode
+    dest: .opencode
+    when: include_skills == "true"
+
+  - type: copy
+    src: .github
+    dest: .github
+    when: ci_replacement_strategy == "replace"
+
+  - type: render_template
+    src: AGENTS.md.hbs
+    dest: AGENTS.md
+    when: include_skills == "true"
+
+  - type: render_template
+    src: LICENSE.hbs
+    dest: LICENSE
+    when: license != "none"
+
+  - type: render_template
+    src: docs/project-plan.md.hbs
+    dest: docs/project-plan.md
+
+  - type: render_template
+    src: docs/beads-setup.md
+    dest: docs/beads-setup.md
+    when: initialize_beads == "true"
+
+  - type: render_template
+    src: docs/brownfield-migration.md.hbs
+    dest: docs/brownfield-migration.md
+
+  - type: render_template
+    src: docs/integration-guide.md.hbs
+    dest: docs/integration-guide.md
+
+  - type: render_template
+    src: config/project-vars.yaml.hbs
+    dest: config/project-vars.yaml
+
+tests:
+  - echo "Validating brownfield enhancement template..."
+  - test -d .opencode/skill && echo "✅ Skills directory found" || echo "❌ Skills directory not found"
+  - test -d docs && echo "✅ Docs directory found" || echo "❌ Docs directory not found"
+  - test -f config/project-vars.yaml && echo "✅ Project configuration found" || echo "❌ Project configuration not found"
+  - test -d legacy && echo "✅ Legacy preservation found" || echo "❌ Legacy preservation not found"

@@ -62,6 +62,16 @@ Output:
 ```
 Available templates:
 
+  product-planning (0.1.0)
+    Product Planning with OpenCode Skills
+    Complete product planning with opencode skills, beads task management, and autonomous agents
+    Language: universal
+
+  brownfield-enhancement (0.1.0)
+    Brownfield Project Enhancement
+    Enhances existing projects with scaffold's full product development platform, preserving legacy artifacts
+    Language: universal
+
   rust-basic (0.1.0)
     Rust Basic Project
     A basic Rust project with CI, linting, and tests
@@ -134,6 +144,20 @@ scaffold generate --template node-basic --out my-app --apply --allow-scripts
 
 # Commit automatically after generation
 scaffold generate --template rust-basic --out my-app --apply --commit
+```
+
+### Enhancing Existing Projects
+
+```bash
+# Add complete product development platform to existing project
+scaffold generate --template brownfield-enhancement --out . --apply
+
+# This preserves existing artifacts in legacy/ and adds:
+# - 11 planning & task management skills
+# - 13 autonomous agents
+# - Beads task management system
+# - Comprehensive documentation
+# - CI/CD automation
 ```
 
 ### Adding CI to Existing Project

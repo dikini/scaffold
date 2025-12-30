@@ -519,6 +519,89 @@ scaffold generate --template node-basic --apply
 scaffold generate --template node-basic --apply --allow-scripts
 ```
 
+## 🔄 Shared Components Architecture
+
+Scaffold supports shared components to maintain parity between related templates and reduce duplication.
+
+### Directory Structure
+```
+templates/
+├── _shared/                    # Common components
+│   ├── .opencode/            # Skills and agents
+│   ├── docs/                 # Documentation templates
+│   ├── .github/workflows/    # CI templates
+│   ├── AGENTS.md             # Base agent guidance
+│   └── version.json          # Version tracking
+├── product-planning/         # Greenfield template
+└── brownfield-enhancement/   # Brownfield template
+```
+
+### Usage in Templates
+Templates reference shared components using relative paths:
+```yaml
+steps:
+  - type: copy
+    src: ../_shared/.opencode
+    dest: .opencode
+  - type: render_template
+    src: ../_shared/AGENTS.md
+    dest: AGENTS.md
+```
+
+### Benefits
+- **Single Source of Truth**: Updates to shared components benefit all templates
+- **Parity Maintenance**: Ensures consistent skills and agents across templates
+- **Easier Maintenance**: Centralized updates reduce duplication
+- **Version Control**: Shared `version.json` tracks component changes
+
+### Maintenance
+See `templates/MAINTENANCE.md` for detailed procedures on updating shared components and maintaining template compatibility.
+
+## 🏗️ Brownfield Enhancement Template
+
+The `brownfield-enhancement` template provides a complete product development platform for existing projects.
+
+### Key Features
+- **Legacy Preservation**: Safely archives existing artifacts in `legacy/` directory
+- **Tech Stack Detection**: Supports Rust, Node.js, Python, Go with customized guidance
+- **Full Ecosystem**: Includes all 11 skills and 13 agents from shared components
+- **Workflow Parity**: Enhanced projects operate identically to greenfield scaffolded projects
+
+### Usage
+```bash
+# List available templates
+scaffold list-templates
+
+# Generate brownfield enhancement
+scaffold generate --template brownfield-enhancement --out . --apply
+```
+
+### Template Variables
+- `tech_stack`: Target technology stack (Rust, Node.js, Python, Go)
+- `preserve_legacy`: Archive existing artifacts (default: true)
+- `include_skills`: Enable opencode skills (default: true)
+- `initialize_beads`: Set up task management (default: true)
+
+### Generated Structure
+```
+project/
+├── legacy/           # Preserved original artifacts
+├── .opencode/        # 11 skills, 13 agents
+├── .beads/          # Task management system
+├── docs/            # Project documentation
+├── .github/         # CI workflows
+├── AGENTS.md        # Tech-stack-customized guidance
+└── config/          # Project configuration
+```
+
+### Migration Process
+1. **Analysis**: Detects existing project structure and tech stack
+2. **Preservation**: Moves conflicting artifacts to `legacy/` directory
+3. **Enhancement**: Adds complete scaffold ecosystem
+4. **Integration**: Provides documentation for workflow adoption
+
+This template transforms any brownfield project into a comprehensive product development platform while maintaining full rollback capability.
+
 ## 📚 Additional Resources
 
 - [Handlebars Documentation](https://handlebarsjs.com/guide/)

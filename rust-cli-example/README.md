@@ -1,0 +1,204 @@
+# rust-cli-example
+
+> A command-line tool for processing text files with various transformations
+
+## 🎯 Project Overview
+
+This project includes comprehensive product planning and task management tools with opencode skills and beads integration to guide you from initial concept to implementation-ready specifications.
+
+## 🚀 Quick Start
+
+### 1. Start with Product Requirements
+
+Begin by creating your Product Requirements Document:
+
+```bash
+skill write-prd
+```
+
+Follow the guided process to define:
+- Problem statement and target users
+- Success metrics and business objectives
+- Functional and non-functional requirements
+- Timeline and resource requirements
+
+### 2. Analyze Your PRD
+
+Once you have a draft PRD, analyze it for implementation planning:
+
+```bash
+skill analyze-prd
+```
+
+This will provide:
+- Risk assessment and mitigation strategies
+- Resource requirements and team composition
+- Implementation phases and timeline
+- Stakeholder communication plan
+
+### 3. Create Feature Breakdown
+
+Convert your PRD into actionable development items:
+
+```bash
+skill feature-mapping
+```
+
+You'll get:
+- Epic and feature definitions
+- User stories with acceptance criteria
+- Priority rankings and story point estimates
+- Sprint planning recommendations
+
+### 4. Set Up Task Management
+
+Initialize beads task management and plan tasks:
+
+```bash
+# Initialize beads (run once)
+bd init
+
+# Plan tasks using beads
+skill task-planner
+```
+
+Creates:
+- Beads task structure with hierarchical IDs (bd-xxxx)
+- Dependency-aware task organization
+- Git-backed distributed task management
+- Multi-agent and human collaboration setup
+
+### 5. Track and Manage Tasks
+
+Monitor and update task progress:
+
+```bash
+skill task-tracker
+skill dependency-manager
+skill epic-manager
+skill sprint-planner
+```
+
+Provides:
+- Real-time task tracking and status updates
+- Dependency management and blocker resolution
+- Epic organization and hierarchical task management
+- Sprint planning with velocity tracking and capacity optimization
+
+### 6. Autonomous Task Execution (Optional)
+
+For fully autonomous task completion:
+
+```bash
+@task-agent
+```
+
+The task-agent autonomously:
+- Finds ready (unblocked) tasks from beads
+- Claims and executes tasks according to their requirements
+- Discovers new work and creates additional tasks
+- Reports progress and maintains full audit trails
+- Works independently and in parallel with other agents
+
+### 6. Design Technical Architecture
+
+Create detailed technical specifications:
+
+```bash
+skill tech-design-doc
+```
+
+Includes:
+- System architecture and component design
+- Technology stack recommendations
+- API specifications (if applicable)
+- Security and performance considerations
+
+### 7. Plan Project Timeline
+
+Create visual roadmaps and release plans:
+
+```bash
+skill project-roadmap
+```
+
+Provides:
+- Visual timeline with milestones
+- Release planning and dependencies
+- Resource allocation visualization
+- Progress tracking framework
+
+### 8. Generate API Contracts (Optional)
+
+For API-heavy projects:
+
+```bash
+skill api-contract
+```
+
+Creates:
+- OpenAPI specifications
+- Endpoint documentation
+- Integration guidelines
+- SDK generation specifications
+
+## 📁 Project Structure
+
+```
+rust-cli-example/
+├── .opencode/agents/        # OpenCode agents for autonomous work
+│   └── task-agent.md       # Autonomous task completion agent
+├── .opencode/skill/          # Opencode skills for planning and task management
+│   # Planning Skills
+│   ├── write-prd/           # PRD creation
+│   ├── analyze-prd/         # PRD analysis
+│   ├── feature-mapping/     # Feature breakdown
+│   # Task Management Skills
+│   ├── task-planner/        # Beads task planning
+│   ├── task-tracker/        # Task tracking and status management
+│   ├── dependency-manager/   # Dependency resolution and optimization
+│   ├── epic-manager/        # Epic organization and hierarchy
+│   ├── sprint-planner/      # Sprint planning and velocity tracking
+│   # Technical Skills
+│   ├── tech-design-doc/     # Technical design
+│   ├── project-roadmap/     # Timeline planning
+│   └── api-contract/       # API specifications
+├── docs/                   # Generated documentation
+│   ├── project-plan.md      # Project overview
+│   ├── prd/               # Product Requirements
+│   ├── technical/          # Technical specifications
+│   └── roadmap/           # Timeline visualizations
+├── config/                # Configuration files
+│   └── project-vars.yaml  # Project variables
+└── .github/               # GitHub Actions workflows
+```
+
+## 🎯 Project Configuration
+
+Your project is configured for:
+- **Type**: other
+- **Team Size**: 1-2 members
+- **Timeline**: 2 months
+- **License**: MIT
+- **Author**: Scaffold User
+
+## 🛠️ Next Steps
+
+1. **Planning Phase**: Use the opencode skills to create comprehensive specifications
+2. **Implementation**: Choose an appropriate scaffold template for your technology stack
+3. **Development**: Follow the generated technical specifications and user stories
+4. **Iteration**: Update planning documents as requirements evolve
+
+## 📚 Documentation
+
+- [Product Planning Guide](docs/project-plan.md)
+- [OpenCode Skills Documentation](.opencode/README.md)
+- [Example Workflow](.opencode/EXAMPLE_WORKFLOW.md)
+
+## 🤝 Contributing
+
+This project uses opencode skills for collaborative planning. Ensure all team members have access to opencode and the appropriate skill permissions.
+
+---
+
+*This project was generated with scaffold and includes comprehensive planning tools to guide your product development lifecycle.*

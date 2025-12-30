@@ -74,6 +74,7 @@ Scaffold integrates seamlessly with opencode's command palette:
 | Template | Language | Description |
 |----------|----------|-------------|
 | `product-planning` | Universal | Complete product planning with opencode skills, beads task management, and autonomous agents |
+| `brownfield-enhancement` | Universal | Enhances existing projects with scaffold's full product development platform, preserving legacy artifacts |
 | `rust-basic` | Rust | Basic Rust project with CI, linting, tests, and AGENTS.md |
 | `node-basic` | TypeScript | Node.js project with TypeScript, ESLint, Jest, and AGENTS.md |
 | `ci-github-actions` | Any | Add GitHub Actions CI to existing project |

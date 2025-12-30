@@ -70,17 +70,16 @@ steps:
     when: include_skills == "true"
 
   - type: copy
-    src: .opencode
+    src: ../_shared/.opencode
     dest: .opencode
     when: include_skills == "true"
 
   - type: copy
-    src: .opencode
-    dest: .opencode
-    when: include_skills == "true"
+    src: ../_shared/.github/workflows
+    dest: .github/workflows
 
   - type: render_template
-    src: AGENTS.md
+    src: ../_shared/AGENTS.md
     dest: AGENTS.md
     when: include_skills == "true"
 
@@ -90,11 +89,11 @@ steps:
     when: license != "none"
 
   - type: render_template
-    src: docs/project-plan.md.hbs
+    src: ../_shared/docs/project-plan.md.hbs
     dest: docs/project-plan.md
 
   - type: render_template
-    src: docs/beads-setup.md
+    src: ../_shared/docs/beads-setup.md
     dest: docs/beads-setup.md
     when: initialize_beads == "true"
 

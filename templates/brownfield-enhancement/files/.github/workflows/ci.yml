@@ -1,0 +1,136 @@
+name: Documentation CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate-docs:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+    
+    - name: Check Project Structure
+      run: |
+        echo "Checking project structure..."
+        ls -la
+        
+        echo "Checking opencode skills..."
+        if [ -d ".opencode/skill" ]; then
+          echo "✅ Skills directory found"
+          ls -la .opencode/skill/
+        else
+          echo "❌ Skills directory not found"
+          exit 1
+        fi
+        
+        echo "Checking docs structure..."
+        if [ -d "docs" ]; then
+          echo "✅ Docs directory found"
+          ls -la docs/
+        else
+          echo "❌ Docs directory not found"
+          exit 1
+        fi
+        
+        echo "Checking config structure..."
+        if [ -f "config/project-vars.yaml" ]; then
+          echo "✅ Project configuration found"
+        else
+          echo "❌ Project configuration not found"
+          exit 1
+        fi
+    
+    - name: Validate Skills
+      run: |
+        echo "Validating planning skills..."
+        for skill in write-prd analyze-prd feature-mapping; do
+          if [ -f ".opencode/skill/$skill/SKILL.md" ]; then
+            echo "✅ $skill skill found"
+          else
+            echo "❌ $skill skill not found"
+            exit 1
+          fi
+        done
+        
+        echo "Validating task management skills..."
+        for skill in task-planner task-tracker dependency-manager epic-manager sprint-planner; do
+          if [ -f ".opencode/skill/$skill/SKILL.md" ]; then
+            echo "✅ $skill skill found"
+          else
+            echo "❌ $skill skill not found"
+            exit 1
+          fi
+        done
+        
+        echo "Validating technical skills..."
+        for skill in tech-design-doc project-roadmap api-contract; do
+          if [ -f ".opencode/skill/$skill/SKILL.md" ]; then
+            echo "✅ $skill skill found"
+          else
+            echo "❌ $skill skill not found"
+            exit 1
+          fi
+        done
+    
+    - name: Check Documentation
+      run: |
+        echo "Checking documentation files..."
+        if [ -f "README.md" ]; then
+          echo "✅ README.md found"
+        else
+          echo "❌ README.md not found"
+          exit 1
+        fi
+        
+        if [ -f "docs/project-plan.md" ]; then
+          echo "✅ Project plan found"
+        else
+          echo "❌ Project plan not found"
+          exit 1
+        fi
+        
+        if [ -f "AGENT.md" ]; then
+          echo "✅ AGENT.md found"
+        else
+          echo "❌ AGENT.md not found"
+          exit 1
+        fi
+    
+    - name: Validate Configuration
+      run: |
+        echo "Validating configuration..."
+        if [ -f "config/project-vars.yaml" ]; then
+          echo "✅ Project configuration found"
+          cat config/project-vars.yaml | head -5
+        else
+          echo "❌ Project configuration not found"
+          exit 1
+        fi
+    
+    - name: Check Task Management Setup
+      run: |
+        echo "Checking task management configuration..."
+        
+        # Check if beads integration is enabled
+        if grep -q "beads_integration: true" config/project-vars.yaml; then
+          echo "✅ Beads integration enabled"
+          echo "Note: Initialize beads with 'bd init' when ready to start task management"
+        else
+          echo "ℹ️  Beads integration not enabled in config"
+        fi
+        
+        # Check for task management settings
+        if grep -q "task_management_system: beads" config/project-vars.yaml; then
+          echo "✅ Task management system configured for beads"
+        else
+          echo "ℹ️  Task management system not specified"
+        fi

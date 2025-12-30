@@ -2,12 +2,13 @@
   "permission": {
     "skill": {
       "write-prd": "allow",
-      "analyze-prd": "allow", 
+      "analyze-prd": "allow",
       "feature-mapping": "allow",
       "tech-design-doc": "allow",
       "project-roadmap": "allow",
       "api-contract": "allow",
       "*": "allow"
     }
-  }
+  },
+  "$schema": "https://opencode.ai/config.json"
 }

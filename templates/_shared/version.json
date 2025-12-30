@@ -1,0 +1,11 @@
+{
+  "version": "0.1.0",
+  "last_updated": "2024-12-30",
+  "skills_count": 11,
+  "agents_count": 13,
+  "templates_using": ["product-planning", "brownfield-enhancement"],
+  "changelog": [
+    "Initial shared components extraction",
+    "Added brownfield-enhancement template support"
+  ]
+}

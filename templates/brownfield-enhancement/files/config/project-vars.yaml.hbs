@@ -1,0 +1,87 @@
+# Project Variables Configuration
+# This file contains configuration for the enhanced project setup
+
+# Project Information
+project_name: "{{project_name}}"
+description: "{{description}}"
+author: "{{author}}"
+license: "{{license}}"
+
+# Enhancement Configuration
+enhancement_type: "brownfield"
+template_version: "0.1.0"
+scaffold_date: "{{current_date}}"
+
+# Tech Stack Configuration
+tech_stack: "{{tech_stack}}"
+
+# Migration Settings
+preserve_legacy: {{preserve_legacy}}
+migrate_existing_tasks: {{migrate_existing_tasks}}
+ci_replacement_strategy: "{{ci_replacement_strategy}}"
+
+# Team and Planning
+team_size: "{{team_size}}"
+timeline_months: {{timeline_months}}
+include_skills: {{include_skills}}
+initialize_beads: {{initialize_beads}}
+
+# Skills Configuration
+enabled_skills:
+  - write-prd
+  - analyze-prd
+  - feature-mapping
+  - task-planner
+  - task-tracker
+  - dependency-manager
+  - epic-manager
+  - sprint-planner
+  - tech-design-doc
+  - project-roadmap
+  - api-contract
+
+# Agent Configuration
+enabled_agents:
+  - prd-agent
+  - analysis-agent
+  - features-agent
+  - design-agent
+  - roadmap-agent
+  - api-agent
+  - tasks-agent
+  - sprint-agent
+  - requirements-phase
+  - design-phase
+  - planning-phase
+  - task-agent
+
+# Beads Configuration
+beads_config:
+  team_size: "{{team_size}}"
+  sprint_duration: "2weeks"
+  hierarchy_enabled: true
+  git_integration: true
+
+# CI/CD Configuration
+ci_config:
+  provider: github_actions
+  rust_support: {{#if (eq tech_stack "Rust")}}true{{else}}false{{/if}}
+  node_support: {{#if (eq tech_stack "Node.js")}}true{{else}}false{{/if}}
+  python_support: {{#if (eq tech_stack "Python")}}true{{else}}false{{/if}}
+  go_support: {{#if (eq tech_stack "Go")}}true{{else}}false{{/if}}
+
+# Legacy Preservation
+legacy_artifacts:
+  {{#if existing_agents_found}}
+  - AGENTS.md
+  {{/if}}
+  {{#if existing_beads_found}}
+  - .beads/
+  {{/if}}
+  {{#if existing_opencode_found}}
+  - .opencode/
+  {{/if}}
+  - docs/
+  {{#if existing_ci_found}}
+  - .github/
+  {{/if}}

@@ -1,0 +1,9 @@
+project_name: rust-cli-example
+description: A command-line tool for processing text files with various transformations
+author: Scaffold User
+license: MIT
+include_skills: "true"
+project_type: other
+team_size: "1-2"
+timeline_months: "2"
+initialize_beads: "true"

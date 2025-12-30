@@ -1,0 +1,18 @@
+[workspace]
+
+[package]
+name = "rust-cli-example"
+version = "0.1.0"
+edition = "2021"
+description = "A command-line tool for processing text files with various transformations"
+license = "MIT"
+authors = ["Scaffold User"]
+
+[dependencies]
+clap = { version = "4.0", features = ["derive"] }
+regex = "1.10"
+anyhow = "1.0"
+thiserror = "1.0"
+indicatif = "0.17"
+
+[dev-dependencies]

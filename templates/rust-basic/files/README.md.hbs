@@ -1,0 +1,44 @@
+# {{project_name}}
+
+{{description}}
+
+## Getting Started
+
+### Prerequisites
+
+- Rust 1.70+ (install via [rustup](https://rustup.rs/))
+
+### Building
+
+```bash
+cargo build
+```
+
+### Running
+
+```bash
+cargo run
+```
+
+### Testing
+
+```bash
+cargo test
+```
+
+### Linting
+
+```bash
+cargo clippy
+cargo fmt --check
+```
+
+## License
+
+{{#if license}}
+{{#unless (eq license "none")}}
+This project is licensed under the {{license}} License - see the [LICENSE](LICENSE) file for details.
+{{/unless}}
+{{else}}
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+{{/if}}

@@ -1,0 +1,78 @@
+id: rust-basic
+name: Rust Basic Project
+description: A basic Rust project with CI, linting, and tests
+version: "0.1.0"
+language: rust
+ci_provider: github_actions
+network: deny
+
+inputs:
+  - name: project_name
+    type: string
+    prompt: "Project name?"
+    required: true
+  - name: description
+    type: string
+    prompt: "Project description?"
+    default: "A Rust project"
+  - name: author
+    type: string
+    prompt: "Author name?"
+    default: ""
+  - name: license
+    type: enum
+    prompt: "License?"
+    enum_values:
+      - MIT
+      - Apache-2.0
+      - GPL-3.0
+      - none
+    default: MIT
+  - name: use_async
+    type: bool
+    prompt: "Use async (tokio)?"
+    default: "false"
+
+steps:
+  - type: render_template
+    src: Cargo.toml.hbs
+    dest: Cargo.toml
+
+  - type: render_template
+    src: src/main.rs.hbs
+    dest: src/main.rs
+
+  - type: render_template
+    src: src/lib.rs.hbs
+    dest: src/lib.rs
+
+  - type: render_template
+    src: README.md.hbs
+    dest: README.md
+
+  - type: render_template
+    src: .gitignore.hbs
+    dest: .gitignore
+
+  - type: render_template
+    src: rustfmt.toml.hbs
+    dest: rustfmt.toml
+
+  - type: render_template
+    src: clippy.toml.hbs
+    dest: clippy.toml
+
+  - type: copy
+    src: .github
+    dest: .github
+
+  - type: render_template
+    src: LICENSE.hbs
+    dest: LICENSE
+    when: license != "none"
+
+tests:
+  - cargo build
+  - cargo test
+  - cargo clippy -- -D warnings
+  - cargo fmt -- --check

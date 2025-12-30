@@ -1,0 +1,56 @@
+# {{project_name}}
+
+{{description}}
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18+ (install via [nvm](https://github.com/nvm-sh/nvm) or [nodejs.org](https://nodejs.org/))
+
+### Installation
+
+```bash
+npm install
+```
+
+### Building
+
+```bash
+npm run build
+```
+
+### Running
+
+```bash
+npm start
+# or for development
+npm run dev
+```
+
+### Testing
+
+```bash
+npm test
+# or watch mode
+npm run test:watch
+```
+
+### Linting
+
+```bash
+npm run lint
+{{#if use_prettier}}
+npm run format:check
+{{/if}}
+```
+
+## License
+
+{{#if license}}
+{{#unless (eq license "none")}}
+This project is licensed under the {{license}} License.
+{{/unless}}
+{{else}}
+This project is licensed under the MIT License.
+{{/if}}

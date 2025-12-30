@@ -1,0 +1,16 @@
+[package]
+name = "executor"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+description = "Guarded script execution for scaffold"
+
+[dependencies]
+thiserror.workspace = true
+regex.workspace = true
+
+manifest.workspace = true
+
+[dev-dependencies]
+tempfile.workspace = true

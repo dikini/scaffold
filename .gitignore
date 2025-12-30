@@ -1,0 +1,16 @@
+# Build artifacts
+/target/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Cargo lock (we're a library/tool - include for reproducible builds)
+# Cargo.lock - keep this for reproducibility

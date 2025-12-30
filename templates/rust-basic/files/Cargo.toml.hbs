@@ -1,0 +1,24 @@
+[package]
+name = "{{project_name}}"
+version = "0.1.0"
+edition = "2021"
+{{#if description}}
+description = "{{description}}"
+{{/if}}
+{{#if author}}
+authors = ["{{author}}"]
+{{/if}}
+{{#if license}}
+{{#unless (eq license "none")}}
+license = "{{license}}"
+{{/unless}}
+{{/if}}
+
+[dependencies]
+{{#if use_async}}
+tokio = { version = "1", features = ["full"] }
+{{/if}}
+thiserror = "1.0"
+anyhow = "1.0"
+
+[dev-dependencies]

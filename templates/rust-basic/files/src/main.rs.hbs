@@ -1,0 +1,14 @@
+{{#if use_async}}
+use {{project_name}}::run;
+
+#[tokio::main]
+async fn main() -> anyhow::Result<()> {
+    run().await
+}
+{{else}}
+use {{project_name}}::run;
+
+fn main() -> anyhow::Result<()> {
+    run()
+}
+{{/if}}

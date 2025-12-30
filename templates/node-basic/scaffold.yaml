@@ -1,0 +1,82 @@
+id: node-basic
+name: Node.js/TypeScript Basic Project
+description: A basic Node.js project with TypeScript, CI, linting, and tests
+version: "0.1.0"
+language: typescript
+ci_provider: github_actions
+network: allow
+
+inputs:
+  - name: project_name
+    type: string
+    prompt: "Project name?"
+    required: true
+  - name: description
+    type: string
+    prompt: "Project description?"
+    default: "A Node.js project"
+  - name: author
+    type: string
+    prompt: "Author name?"
+    default: ""
+  - name: license
+    type: enum
+    prompt: "License?"
+    enum_values:
+      - MIT
+      - Apache-2.0
+      - ISC
+      - none
+    default: MIT
+  - name: use_eslint
+    type: bool
+    prompt: "Use ESLint?"
+    default: "true"
+  - name: use_prettier
+    type: bool
+    prompt: "Use Prettier?"
+    default: "true"
+
+steps:
+  - type: render_template
+    src: package.json.hbs
+    dest: package.json
+
+  - type: render_template
+    src: tsconfig.json.hbs
+    dest: tsconfig.json
+
+  - type: render_template
+    src: src/index.ts.hbs
+    dest: src/index.ts
+
+  - type: render_template
+    src: src/index.test.ts.hbs
+    dest: src/index.test.ts
+
+  - type: render_template
+    src: README.md.hbs
+    dest: README.md
+
+  - type: render_template
+    src: .gitignore.hbs
+    dest: .gitignore
+
+  - type: render_template
+    src: .eslintrc.json.hbs
+    dest: .eslintrc.json
+    when: use_eslint == "true"
+
+  - type: render_template
+    src: .prettierrc.hbs
+    dest: .prettierrc
+    when: use_prettier == "true"
+
+  - type: copy
+    src: .github
+    dest: .github
+
+tests:
+  - npm run build
+  - npm test
+  - npm run lint

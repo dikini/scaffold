@@ -1,0 +1,27 @@
+//! {{description}}
+
+use anyhow::Result;
+
+{{#if use_async}}
+/// Run the application.
+pub async fn run() -> Result<()> {
+    println!("Hello from {{project_name}}!");
+    Ok(())
+}
+{{else}}
+/// Run the application.
+pub fn run() -> Result<()> {
+    println!("Hello from {{project_name}}!");
+    Ok(())
+}
+{{/if}}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_placeholder() {
+        assert!(true);
+    }
+}

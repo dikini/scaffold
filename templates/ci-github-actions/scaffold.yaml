@@ -1,0 +1,55 @@
+id: ci-github-actions
+name: GitHub Actions CI
+description: Add GitHub Actions CI workflow to an existing project
+version: "0.1.0"
+language: null
+ci_provider: github_actions
+network: deny
+
+inputs:
+  - name: project_type
+    type: enum
+    prompt: "Project type?"
+    enum_values:
+      - rust
+      - node
+      - python
+      - go
+      - generic
+    required: true
+  - name: run_tests
+    type: bool
+    prompt: "Run tests in CI?"
+    default: "true"
+  - name: run_lint
+    type: bool
+    prompt: "Run linting in CI?"
+    default: "true"
+
+steps:
+  - type: render_template
+    src: rust-ci.yml.hbs
+    dest: .github/workflows/ci.yml
+    when: project_type == "rust"
+
+  - type: render_template
+    src: node-ci.yml.hbs
+    dest: .github/workflows/ci.yml
+    when: project_type == "node"
+
+  - type: render_template
+    src: python-ci.yml.hbs
+    dest: .github/workflows/ci.yml
+    when: project_type == "python"
+
+  - type: render_template
+    src: go-ci.yml.hbs
+    dest: .github/workflows/ci.yml
+    when: project_type == "go"
+
+  - type: render_template
+    src: generic-ci.yml.hbs
+    dest: .github/workflows/ci.yml
+    when: project_type == "generic"
+
+tests: []

@@ -23,7 +23,7 @@ Scaffold is a powerful CLI tool for generating project repositories with CI, lin
 cargo install scaffold
 
 # Or build from this repository
-git clone https://github.com/your-org/scaffold
+git clone https://github.com/dikini/scaffold
 cd scaffold
 cargo install --path .
 ```
@@ -180,7 +180,7 @@ We welcome contributions! See our [Contributing Guide](CONTRIBUTING.md) for deta
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-org/scaffold
+git clone https://github.com/dikini/scaffold
 cd scaffold
 
 # Install dependencies
@@ -216,7 +216,7 @@ This project is licensed under the GNU General Public License v3.0 - see the [LI
 
 ## 🔗 Links
 
-- [Repository](https://github.com/your-org/scaffold)
-- [Documentation](https://github.com/your-org/scaffold/docs)
-- [Issues](https://github.com/your-org/scaffold/issues)
-- [Discussions](https://github.com/your-org/scaffold/discussions)
+- [Repository](https://github.com/dikini/scaffold)
+- [Documentation](https://github.com/dikini/scaffold/docs)
+- [Issues](https://github.com/dikini/scaffold/issues)
+- [Discussions](https://github.com/dikini/scaffold/discussions)

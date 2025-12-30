@@ -7,10 +7,10 @@ We welcome contributions to Scaffold! This guide covers everything you need to k
 We accept these types of contributions:
 
 ### 🐛 Bug Reports
-Report bugs using [GitHub Issues](https://github.com/your-org/scaffold/issues).
+Report bugs using [GitHub Issues](https://github.com/dikini/scaffold/issues).
 
 ### ✨ Feature Requests
-Request new features using [GitHub Issues](https://github.com/your-org/scaffold/issues).
+Request new features using [GitHub Issues](https://github.com/dikini/scaffold/issues).
 
 ### 📝 Documentation
 Improve documentation through pull requests.
@@ -434,23 +434,23 @@ cargo publish
 - [Similar](https://github.com/mitsuhiko/similar-rs) - Diff generation
 
 ### Project Resources
-- [Repository](https://github.com/your-org/scaffold) - Source code
-- [Issues](https://github.com/your-org/scaffold/issues) - Report bugs
-- [Discussions](https://github.com/your-org/scaffold/discussions) - Ask questions
-- [Documentation](https://github.com/your-org/scaffold/docs) - Full docs
+- [Repository](https://github.com/dikini/scaffold) - Source code
+- [Issues](https://github.com/dikini/scaffold/issues) - Report bugs
+- [Discussions](https://github.com/dikini/scaffold/discussions) - Ask questions
+- [Documentation](https://github.com/dikini/scaffold/docs) - Full docs
 
 ## 🙏 Getting Help
 
 ### For Contributors
-- **GitHub Discussions**: [Ask questions](https://github.com/your-org/scaffold/discussions)
-- **Issues**: [Report problems](https://github.com/your-org/scaffold/issues)
+- **GitHub Discussions**: [Ask questions](https://github.com/dikini/scaffold/discussions)
+- **Issues**: [Report problems](https://github.com/dikini/scaffold/issues)
 - **Email**: maintainer@example.com (for sensitive issues)
 
 ### For Users
-- **Documentation**: [Browse all docs](https://github.com/your-org/scaffold/docs)
-- **Examples**: [See usage patterns](https://github.com/your-org/scaffold/tree/main/docs/examples)
-- **Issues**: [Report bugs](https://github.com/your-org/scaffold/issues)
-- **Discussions**: [Ask questions](https://github.com/your-org/scaffold/discussions)
+- **Documentation**: [Browse all docs](https://github.com/dikini/scaffold/docs)
+- **Examples**: [See usage patterns](https://github.com/dikini/scaffold/tree/main/docs/examples)
+- **Issues**: [Report bugs](https://github.com/dikini/scaffold/issues)
+- **Discussions**: [Ask questions](https://github.com/dikini/scaffold/discussions)
 
 ## 📄 Code of Conduct
 

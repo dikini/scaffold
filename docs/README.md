@@ -45,8 +45,8 @@ Welcome to the Scaffold documentation! This guide covers everything from basic u
 
 ## 🛠️ Need Help?
 
-- **GitHub Issues**: [Report bugs or request features](https://github.com/your-org/scaffold/issues)
-- **GitHub Discussions**: [Ask questions and share ideas](https://github.com/your-org/scaffold/discussions)
+- **GitHub Issues**: [Report bugs or request features](https://github.com/dikini/scaffold/issues)
+- **GitHub Discussions**: [Ask questions and share ideas](https://github.com/dikini/scaffold/discussions)
 - **Examples**: Browse [real-world examples](examples/)
 
 ## 📖 Documentation Structure
@@ -68,7 +68,7 @@ docs/
 
 ## 🔄 Keeping Updated
 
-This documentation is versioned with the Scaffold codebase. For the latest version, check the [GitHub repository](https://github.com/your-org/scaffold).
+This documentation is versioned with the Scaffold codebase. For the latest version, check the [GitHub repository](https://github.com/dikini/scaffold).
 
 ## 🤝 Contributing to Documentation
 

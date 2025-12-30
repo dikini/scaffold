@@ -23,7 +23,7 @@ This installs Scaffold in your Cargo binary directory (`~/.cargo/bin/` by defaul
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-org/scaffold
+git clone https://github.com/dikini/scaffold
 cd scaffold
 
 # Install locally
@@ -35,7 +35,7 @@ cargo run -- --help
 
 ### Option 3: Download Binary
 
-1. Go to [Releases](https://github.com/your-org/scaffold/releases)
+1. Go to [Releases](https://github.com/dikini/scaffold/releases)
 2. Download the appropriate binary for your OS
 3. Extract and add to your PATH
 
@@ -289,6 +289,6 @@ Now that you're comfortable with the basics:
 ## 🆘 Need Help?
 
 - **Documentation**: [Browse all docs](README.md)
-- **Issues**: [Report problems](https://github.com/your-org/scaffold/issues)
-- **Discussions**: [Ask questions](https://github.com/your-org/scaffold/discussions)
+- **Issues**: [Report problems](https://github.com/dikini/scaffold/issues)
+- **Discussions**: [Ask questions](https://github.com/dikini/scaffold/discussions)
 - **Examples**: [See usage patterns](../examples/)

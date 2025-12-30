@@ -1,0 +1,75 @@
+# Project Variables Configuration
+# This file contains configuration for the enhanced project setup
+
+# Project Information
+project_name: "scaffold"
+description: "Language-agnostic project scaffolding tool"
+author: "scaffold contributors"
+license: "MIT"
+
+# Enhancement Configuration
+enhancement_type: "brownfield"
+template_version: "0.1.0"
+scaffold_date: ""
+
+# Tech Stack Configuration
+tech_stack: "Rust"
+
+# Migration Settings
+preserve_legacy: true
+migrate_existing_tasks: false
+ci_replacement_strategy: "replace"
+
+# Team and Planning
+team_size: "3-5"
+timeline_months: 6
+include_skills: true
+initialize_beads: true
+
+# Skills Configuration
+enabled_skills:
+  - write-prd
+  - analyze-prd
+  - feature-mapping
+  - task-planner
+  - task-tracker
+  - dependency-manager
+  - epic-manager
+  - sprint-planner
+  - tech-design-doc
+  - project-roadmap
+  - api-contract
+
+# Agent Configuration
+enabled_agents:
+  - prd-agent
+  - analysis-agent
+  - features-agent
+  - design-agent
+  - roadmap-agent
+  - api-agent
+  - tasks-agent
+  - sprint-agent
+  - requirements-phase
+  - design-phase
+  - planning-phase
+  - task-agent
+
+# Beads Configuration
+beads_config:
+  team_size: "3-5"
+  sprint_duration: "2weeks"
+  hierarchy_enabled: true
+  git_integration: true
+
+# CI/CD Configuration
+ci_config:
+  provider: github_actions
+  rust_support: true
+  node_support: false
+  python_support: false
+  go_support: false
+
+# Legacy Preservation
+legacy_artifacts:
+  - docs/

@@ -226,6 +226,59 @@ This comprehensive skill set transforms this repository from just code storage i
 This project includes specialized opencode agents for autonomous and collaborative work:
 
 ### Available Agents
+
+#### Atomic Agents (Single Responsibility)
+- **prd-agent** - Generate comprehensive PRDs from project ideas
+  - Mode: subagent
+  - Output: `docs/prd.md`
+  - Integration: First step in requirements gathering
+- **analysis-agent** - Analyze PRDs for implementation planning
+  - Mode: subagent
+  - Output: `docs/prd-analysis.md`
+  - Integration: Provides implementation insights and risk assessment
+- **features-agent** - Convert requirements into user stories and epics
+  - Mode: subagent
+  - Output: `docs/feature-backlog.md`
+  - Integration: Creates agile work breakdown
+- **design-agent** - Generate technical design documents
+  - Mode: subagent
+  - Output: `docs/technical-design.md`
+  - Integration: Defines architecture and implementation approach
+- **roadmap-agent** - Create project timelines and milestones
+  - Mode: subagent
+  - Output: `docs/project-roadmap.md`
+  - Integration: Provides project scheduling and resource planning
+- **api-agent** - Generate API specifications and contracts
+  - Mode: subagent
+  - Output: `docs/api-contract.md`
+  - Integration: Defines API interfaces (when needed)
+- **tasks-agent** - Convert features into executable beads tasks
+  - Mode: subagent
+  - Output: Beads tasks (bd-xxxx format)
+  - Integration: Prepares work for autonomous execution
+- **sprint-agent** - Plan sprints with capacity tracking
+  - Mode: subagent
+  - Output: `docs/sprint-plan.md`
+  - Integration: Organizes work into executable timeboxes
+
+#### Phase Agents (Orchestration + QA)
+- **requirements-phase** - Orchestrate complete requirements gathering
+  - Mode: subagent
+  - Coordination: prd-agent → analysis-agent → features-agent
+  - Features: Automated QA, collaborative error recovery
+  - Output: `docs/requirements-phase-report.md`
+- **design-phase** - Coordinate technical design and planning
+  - Mode: subagent
+  - Coordination: design-agent → roadmap-agent → api-agent
+  - Features: Automated QA, collaborative error recovery
+  - Output: `docs/design-phase-report.md`
+- **planning-phase** - Master orchestrator for complete workflow
+  - Mode: subagent
+  - Coordination: requirements-phase → design-phase → tasks-agent + sprint-agent
+  - Features: End-to-end QA, task hand-off to autonomous execution
+  - Output: `docs/planning-complete.md`
+
+#### Task Execution Agent
 - **task-agent** - Autonomous task completion agent that finds and completes ready beads tasks
   - Mode: subagent
   - Invoked with: `@task-agent`
@@ -233,15 +286,29 @@ This project includes specialized opencode agents for autonomous and collaborati
   - Integration: Works with all task management skills and beads system
 
 ### Agent Usage Workflow
-1. **Manual Work**: Use skills for guided task management and planning
-2. **Autonomous Work**: Invoke `@task-agent` for independent task completion
-3. **Collaborative Work**: Agents and humans can work in parallel on different tasks
-4. **Progress Tracking**: All agents maintain audit trails and progress reporting
+1. **Planning Phase**: Invoke `@planning-phase` for complete project planning orchestration
+2. **Requirements Gathering**: Use `@requirements-phase` for comprehensive requirements work
+3. **Technical Design**: Use `@design-phase` for architecture and design planning
+4. **Task Execution**: Invoke `@task-agent` for autonomous task completion
+5. **Collaborative Work**: All agents can work in parallel with human oversight
+6. **Progress Tracking**: Phase agents provide comprehensive status and quality reports
 
 ### Agent Invocation Examples
 ```bash
-# Start autonomous task completion
+# Complete project planning workflow
+@planning-phase
+
+# Individual phases
+@requirements-phase
+@design-phase
+
+# Autonomous task execution
 @task-agent
+
+# Atomic agents (typically invoked by phases)
+@prd-agent
+@design-agent
+# etc.
 
 # Switch between agents during work
 # Tab key cycles between primary agents
@@ -249,10 +316,14 @@ This project includes specialized opencode agents for autonomous and collaborati
 ```
 
 ### Agent Capabilities
-- **Autonomous Execution**: Agents can work independently without human supervision
-- **Parallel Operation**: Multiple agents can work simultaneously on different tasks
-- **Progress Communication**: Clear reporting of work status and discoveries
-- **Context Awareness**: Agents understand project structure and requirements
-- **Integration**: Seamless collaboration with human developers and other agents
+- **Atomic Execution**: Single-responsibility agents focus on specific deliverables
+- **Phase Orchestration**: Coordinating agents manage complete workflows with QA
+- **Automated Quality Assurance**: Built-in validation and scoring systems
+- **Collaborative Error Recovery**: Agents work together to fix issues before human escalation
+- **Autonomous Execution**: Task agents work independently on ready work items
+- **Parallel Operation**: Multiple agents can work simultaneously across different concerns
+- **Progress Communication**: Comprehensive status reporting and audit trails
+- **Context Awareness**: All agents understand project structure and requirements
+- **Integration**: Seamless collaboration between humans, atomic agents, and phase orchestrators
 
-This agent system extends the skill-based workflow into fully autonomous and collaborative development capabilities.
+This agent system provides end-to-end autonomous planning and execution capabilities with comprehensive quality control and collaborative problem-solving.

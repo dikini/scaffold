@@ -1,0 +1,136 @@
+# {{project_name}}
+
+> {{description}}
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+- Python {{python_version}}+
+- [uv](https://github.com/astral-sh/uv) (recommended) or pip
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd {{project_name}}
+   ```
+
+2. Create and activate a virtual environment:
+   ```bash
+   # Using uv (recommended)
+   uv venv
+   source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+
+   # Or using venv
+   python -m venv .venv
+   source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+   ```
+
+3. Install dependencies:
+   ```bash
+   # Using uv
+   uv pip install -e .
+
+   # For development
+   uv pip install -e ".[dev]"
+   ```
+
+### Usage
+
+{{#if include_cli}}
+Run the CLI application:
+```bash
+{{project_name}} --help
+{{project_name}} --name "Python"
+```
+{{/if}}
+
+Use the library in your code:
+```python
+from {{project_name}}.main import hello_world
+
+print(hello_world())  # Output: Hello, World!
+```
+
+## 🧪 Development
+
+### Running Tests
+
+```bash
+# Using uv
+uv run pytest
+
+# Or directly
+pytest
+```
+
+### Code Quality
+
+```bash
+# Format code
+black src/ tests/
+
+# Lint code
+flake8 src/ tests/
+
+# Type checking
+mypy src/
+```
+
+### Building
+
+```bash
+# Build package
+python -m build
+
+# Or using uv
+uv build
+```
+
+## 📋 Available Scripts
+
+- `pytest`: Run tests
+- `black`: Format code
+- `flake8`: Lint code
+- `mypy`: Type check
+- `python -m build`: Build package
+
+## 🏗️ Project Structure
+
+```
+{{project_name}}/
+├── src/
+│   └── {{project_name}}/
+│       ├── __init__.py
+│       └── main.py
+├── tests/
+│   ├── __init__.py
+│   └── test_main.py
+├── .github/
+│   └── workflows/
+│       └── ci.yml
+├── pyproject.toml
+├── requirements-dev.txt
+├── .python-version
+├── .gitignore
+├── LICENSE
+└── README.md
+```
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Run tests and linting
+5. Submit a pull request
+
+## 📄 License
+
+{{license}} - see [LICENSE](LICENSE) file for details.
+
+## 🙋 Support
+
+For questions and support, please open an issue on GitHub.

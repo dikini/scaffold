@@ -1,0 +1,28 @@
+"""Main module for {{project_name}}."""
+
+{{#if include_cli}}
+import click
+{{/if}}
+
+
+def hello_world() -> str:
+    """Return a greeting message.
+
+    Returns:
+        A greeting string.
+    """
+    return "Hello, World!"
+
+
+{{#if include_cli}}
+@click.command()
+@click.option("--name", default="World", help="Name to greet.")
+def main(name: str) -> None:
+    """{{description}}"""
+    greeting = f"Hello, {name}!"
+    click.echo(greeting)
+
+
+if __name__ == "__main__":
+    main()
+{{/if}}

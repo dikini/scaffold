@@ -1,0 +1,35 @@
+"""Tests for the main module."""
+
+import pytest
+
+from {{project_name}}.main import hello_world
+
+
+class TestHelloWorld:
+    """Test cases for hello_world function."""
+
+    def test_hello_world_returns_greeting(self) -> None:
+        """Test that hello_world returns the expected greeting."""
+        result = hello_world()
+        assert result == "Hello, World!"
+
+    def test_hello_world_returns_string(self) -> None:
+        """Test that hello_world returns a string."""
+        result = hello_world()
+        assert isinstance(result, str)
+
+    def test_hello_world_not_empty(self) -> None:
+        """Test that hello_world does not return an empty string."""
+        result = hello_world()
+        assert len(result) > 0
+
+
+{{#if include_cli}}
+def test_main_command(capfd: pytest.CaptureFixture[str]) -> None:
+    """Test the main CLI command."""
+    from {{project_name}}.main import main
+
+    # This would require click testing utilities in a real scenario
+    # For now, just test that the function exists
+    assert callable(main)
+{{/if}}

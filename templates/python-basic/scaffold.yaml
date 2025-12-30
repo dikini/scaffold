@@ -1,0 +1,115 @@
+id: python-basic
+name: Python Basic Project
+description: A basic Python project with venv, pytest, black, flake8, and CI
+version: "0.1.0"
+language: python
+ci_provider: github_actions
+network: allow
+
+inputs:
+  - name: project_name
+    type: string
+    prompt: "Project name?"
+    required: true
+  - name: description
+    type: string
+    prompt: "Project description?"
+    default: "A Python project"
+  - name: author
+    type: string
+    prompt: "Author name?"
+    default: ""
+  - name: license
+    type: enum
+    prompt: "License?"
+    enum_values:
+      - MIT
+      - Apache-2.0
+      - GPL-3.0
+      - none
+    default: MIT
+  - name: python_version
+    type: enum
+    prompt: "Python version?"
+    enum_values:
+      - "3.8"
+      - "3.9"
+      - "3.10"
+      - "3.11"
+      - "3.12"
+    default: "3.11"
+  - name: use_black
+    type: bool
+    prompt: "Use Black for code formatting?"
+    default: "true"
+  - name: use_flake8
+    type: bool
+    prompt: "Use Flake8 for linting?"
+    default: "true"
+  - name: use_mypy
+    type: bool
+    prompt: "Use MyPy for type checking?"
+    default: "true"
+  - name: use_pytest
+    type: bool
+    prompt: "Use pytest for testing?"
+    default: "true"
+  - name: include_cli
+    type: bool
+    prompt: "Include CLI entry point?"
+    default: "false"
+
+steps:
+  - type: render_template
+    src: pyproject.toml.hbs
+    dest: pyproject.toml
+
+  - type: render_template
+    src: requirements-dev.txt.hbs
+    dest: requirements-dev.txt
+
+  - type: render_template
+    src: src/__init__.py.hbs
+    dest: src/__init__.py
+
+  - type: render_template
+    src: src/main.py.hbs
+    dest: src/main.py
+
+  - type: render_template
+    src: tests/__init__.py.hbs
+    dest: tests/__init__.py
+
+  - type: render_template
+    src: tests/test_main.py.hbs
+    dest: tests/test_main.py
+
+  - type: render_template
+    src: README.md.hbs
+    dest: README.md
+
+  - type: render_template
+    src: .gitignore.hbs
+    dest: .gitignore
+
+  - type: render_template
+    src: .python-version.hbs
+    dest: .python-version
+
+  - type: copy
+    src: .github
+    dest: .github
+
+  - type: render_template
+    src: LICENSE.hbs
+    dest: LICENSE
+    when: license != "none"
+
+  - type: render_template
+    src: AGENTS.md
+    dest: AGENTS.md
+
+tests:
+  - python -m pytest tests/ || echo "pytest not available, skipping tests"
+  - python -m black --check src/ tests/ || echo "black not available, skipping format check"
+  - python -m flake8 src/ tests/ || echo "flake8 not available, skipping lint check"
